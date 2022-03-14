@@ -1,0 +1,28 @@
+.headermaincontainer {
+  padding: 20px;
+  margin-top: 100px;
+}
+
+.showblglnk {
+  color: var(--link-font-color);
+}
+
+.Projnamehead {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  column-gap: 10px;
+  font-size: 30px;
+}
+
+.SecItmside {
+  margin: 0 13vw;
+  position: relative;
+  top: 10px;
+  font-size: 22px;
+  color: var(--secondary-font-color);
+  cursor: pointer;
+}
+.PriItmMid {
+  display: initial;
+}

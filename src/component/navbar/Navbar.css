@@ -1,0 +1,70 @@
+.nav-main-container {
+  display: flex;
+  height: 28px;
+  padding-bottom: 35px;
+  padding-right: 5px;
+  padding-top: 5px;
+  background-color: antiquewhite;
+}
+.nav-main-container * {
+  animation: scale-up-left 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+}
+
+.nav-home-text {
+  font-size: min(30px, 8vw);
+  font-family: var(--font-family);
+  position: relative;
+  top: -5px;
+}
+
+.searchbox-container {
+  position: relative;
+  margin: -10px 10px 0 auto;
+}
+.searchbox-container #srcbx {
+  display: none;
+  border-radius: 8px;
+  outline: none;
+  border: none;
+  outline: 2px solid var(--secondary-font-color);
+  font-size: 20px;
+  height: 25px;
+  width: max(150px, 35vw);
+  background-color: var(--background);
+  filter: brightness(80%);
+  color: var(--font-color);
+  padding-left: 10px;
+}
+
+.searchbox-container img {
+  position: relative;
+  height: 30px;
+  padding: 1px;
+  top: 8px;
+  margin-right: 10px;
+  margin-left: 5px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.searchbox-container img:hover {
+  border: 2px solid var(--secondary-font-color);
+}
+
+.registration-btn-container {
+  display: flex;
+  column-gap: 10px;
+}
+
+.rgtbut {
+  position: relative;
+  color: purple;
+}
+.rgtbut * {
+  display: inline;
+}
+.rgtbut :nth-child(1) {
+  margin-right: 5px;
+  position: relative;
+  top: 3px;
+}
