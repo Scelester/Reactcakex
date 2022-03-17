@@ -1,0 +1,6 @@
+.whole-blog-wrapper {
+  border-top: 1px solid var(--font-color);
+  position: relative;
+  top: -70px;
+  z-index: -1;
+}

@@ -14,3 +14,14 @@ a {
   text-decoration: none;
   color: var(--font-color);
 }
+.activated {
+  display: initial;
+}
+.deactivated {
+  display: none;
+}
+.mainbackground {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}

@@ -11,10 +11,11 @@
 }
 
 .nav-home-text {
-  font-size: min(30px, 8vw);
+  font-size: 30px;
   font-family: var(--font-family);
   position: relative;
   top: -5px;
+  left: 10px;
 }
 
 .searchbox-container {
@@ -67,4 +68,8 @@
   margin-right: 5px;
   position: relative;
   top: 3px;
+}
+
+.menu-bar-for-mobile {
+  display: none;
 }

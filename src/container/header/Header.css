@@ -1,15 +1,12 @@
 .headermaincontainer {
   padding: 20px;
   margin-top: 100px;
+  height: 0;
 }
-
-.showblglnk {
-  color: var(--link-font-color);
-}
-
 .Projnamehead {
-  text-align: center;
+  align-items: center;
   display: flex;
+  position: sticky;
   justify-content: center;
   column-gap: 10px;
   font-size: 30px;
@@ -21,8 +18,36 @@
   top: 10px;
   font-size: 22px;
   color: var(--secondary-font-color);
+  display: flex;
+  flex-direction: column;
+}
+.SecItmside > p {
   cursor: pointer;
+  user-select: none;
 }
 .PriItmMid {
   display: initial;
+  white-space: nowrap;
+}
+
+/* for dropdown */
+.ddropdown {
+  border: 1px solid black;
+  width: max(300px, 30vw);
+  position: absolute;
+  top: 25px;
+  display: none;
+  background-color: var(--background);
+  left: -12vw;
+  align-items: center;
+  justify-content: center;
+}
+
+/* dropdown items */
+.dditemcol1 {
+  border-right: 2px solid black;
+  padding-right: 10px;
+}
+.dditemcol2 {
+  padding-left: 15px;
 }
