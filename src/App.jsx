@@ -1,6 +1,7 @@
 import React from "react";
 import { CTA, Navbar } from "./component";
-import { Blog, Header, Footer } from "./container";
+import { Blog, Header, Footer, Cakepage } from "./container";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import "./App.css";
 import { window_is_less_than } from "./extrafunction/csshelper";
@@ -10,12 +11,15 @@ const App = () => {
   return (
     <div className="App">
       <div className="mainbackground">
-        <div>
-          <Navbar />
-          <Header />
-        </div>
+        <Navbar />
+        <Header />
         <CTA />
-        <Blog />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Blog />} />
+            <Route path="/cake/:cid" element={<Cakepage />} />
+          </Routes>
+        </BrowserRouter>
         <Footer />
       </div>
     </div>
