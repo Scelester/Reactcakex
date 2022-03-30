@@ -6,7 +6,6 @@ import {
   Footer,
   Cakepage,
   Admin,
-  Cakeaddpage,
 } from "./container";
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -25,9 +24,8 @@ const App = () => {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Blog />} />
-            <Route path="/cake/:cid" element={<Cakepage />} />
-            <Route path="/admin" element={<Admin />} />
-            <Route path="/admin/cakeadd" element={<Cakeaddpage />} />
+            <Route path="/cake/:cid/" element={<Cakepage />} />
+            <Route path="/admin/" element={<Admin />} />
           </Routes>
         </BrowserRouter>
         <Footer />
