@@ -5,24 +5,32 @@ import "./Blog.css";
 import upcakeone from "../../assets/uppercakewhite.jpeg";
 import upcaketwo from "../../assets/uppercakebirthtwo.jpeg";
 
+fetch("https://djapix.herokuapp.com/cakeg/cakes?format=json")
+  .then(response => response.json())
+  .then((jsonData) => {
+    // jsonData is parsed json object received from url
+    console.log(jsonData)
+  })
+  .catch((error) => {
+    // handle your errors here
+    console.error(error)
+  })
+
+
 export const Blog = () => {
   const [All_blogs, setAll_blogs] = useState();
 
   useEffect(() => {
-    setAll_blogs([
-      {
-        cakeoccation: "birthday",
-        cakename: "dark blue chears",
-        price: "1200",
-        cakeimg: upcakeone,
-      },
-      {
-        cakeoccation: "wedding",
-        cakename: "pornstar wed",
-        price: "420",
-        cakeimg: upcakeone,
-      },
-    ]);
+    setAll_blogs(
+      [
+        {
+          cakeoccation: "birthday",
+          cakename: "dark blue chears",
+          price: "1200",
+          cakeimg: upcakeone,
+        },
+      ]
+    );
   }, []);
 
   return (
