@@ -12,9 +12,9 @@ export const Footer = () => {
       <hr />
       <div className="footer-main-container">
         <p className="contacttext">Contact & Socials</p>
-        <a className="clink" href="#"><img src={gmail_logo} alt="" width="50px" /></a>
-        <a className="clink" href="#"><img src={fb_logo} alt="" width="40px" /></a>
-        <a className="clink" href="#"><img src={insta_logo} alt="" width="40px" /></a>
+        <a className="clink" href="https://www.youtube.com/"><img src={gmail_logo} alt="" width="50px" /></a>
+        <a className="clink" href="https://www.youtube.com/"><img src={fb_logo} alt="" width="40px" /></a>
+        <a className="clink" href="https://www.youtube.com/"><img src={insta_logo} alt="" width="40px" /></a>
       </div>
     </div>
   )
