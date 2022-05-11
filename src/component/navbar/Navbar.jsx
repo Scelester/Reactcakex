@@ -19,7 +19,7 @@ export const Navbar = () => {
   };
 
   // change search icon color to white when dark mode enabled
-  window.addEventListener("load", function() {
+  window.addEventListener("load", function () {
     var curcol = getComputedStyle(document.documentElement).getPropertyValue(
       "--font-color"
     );
@@ -50,7 +50,7 @@ export const Navbar = () => {
         <a className="rgtbut pcview" href="/">
           <div className="logmenuonpc">
             <img src={userlogicon} alt="" width="18px"></img>
-            <p>login/SignUp</p>
+            <p>SignIn</p>
           </div>
         </a>
 

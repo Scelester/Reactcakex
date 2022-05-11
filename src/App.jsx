@@ -21,13 +21,15 @@ const App = () => {
         <Navbar />
         <Header />
         <CTA />
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Blog />} />
-            <Route path="/cake/:cid/" element={<Cakepage />} />
-            <Route path="/admin/" element={<Admin />} />
-          </Routes>
-        </BrowserRouter>
+        <div className="pseudo-body">
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Blog />} />
+              <Route path="/cake/:cid/" element={<Cakepage />} />
+              <Route path="/admin/" element={<Admin />} />
+            </Routes>
+          </BrowserRouter>
+        </div>
         <Footer />
       </div>
     </div>

@@ -1,4 +1,18 @@
 .footer-main-container {
   text-align: center;
   margin-top: auto;
+  padding: 20px 0;
+}
+
+.fcontain {
+  margin-top: 20px;
+}
+
+.clink {
+  padding: 0 20px;
+}
+
+.contacttext {
+  padding-bottom: 10px;
+  font-weight: bold;
 }
