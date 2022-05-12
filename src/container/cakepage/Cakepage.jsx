@@ -22,8 +22,6 @@ export const Cakepage = () => {
     fetchproduct();
   }, [])
 
-  console.log(Product)
-
 
   return (
     <div>

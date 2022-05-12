@@ -15,10 +15,15 @@
   left: 10px;
 }
 
+.loginbutton {
+  cursor: pointer;
+}
+
 .searchbox-container {
   position: relative;
   margin: -10px 10px 0 auto;
 }
+
 .searchbox-container #srcbx {
   display: none;
   border-radius: 8px;
@@ -59,9 +64,11 @@
   position: relative;
   color: purple;
 }
+
 .rgtbut * {
   display: inline;
 }
+
 .rgtbut :nth-child(1) {
   margin-right: 5px;
   position: relative;

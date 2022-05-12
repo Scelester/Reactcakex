@@ -13,24 +13,50 @@ export const Blog = () => {
   const [TopCakes, setTopCakes] = useState();
 
   const fetchCakes = async () => {
-    const allcakes_data = await commerce.products.list({
-      category_slug: ["allcakes"], limit: 20,
-    }).then(response => response.data);
 
-    const topcakes_data = await commerce.products.list({
-      category_slug: ["cake-header"], limit: 5,
-    }).then(response => response.data);
+    let thereAre_topcakes;
+    let threreAre_allcakes;
 
-    setAllcakes(allcakes_data);
-    setTopCakes(topcakes_data);
+    thereAre_topcakes = JSON.parse(window.sessionStorage.getItem('cakeg_topcake'));
+
+    if (thereAre_topcakes !== null) {
+      setTopCakes(thereAre_topcakes)
+    } else {
+
+      const topcakes_data = await commerce.products.list({
+        category_slug: ["cake-header"], limit: 5,
+      }).then(response => response.data);
+
+      window.sessionStorage.setItem('cakeg_topcake', JSON.stringify(topcakes_data));
+
+      setTopCakes(topcakes_data);
+    }
+
+    threreAre_allcakes = JSON.parse(window.sessionStorage.getItem('cakeg_allcake'))
+
+    if (threreAre_allcakes !== null) {
+      setAllcakes(threreAre_allcakes)
+    } else {
+      const allcakes_data = await commerce.products.list({
+        category_slug: ["allcakes"], limit: 20,
+      }).then(response => response.data);
+
+      setAllcakes(allcakes_data);
+
+      window.sessionStorage.setItem('cakeg_allcake', JSON.stringify(allcakes_data))
+
+    }
+
+
+
+
+
 
   }
 
   useEffect(() => {
     fetchCakes();
   }, []);
-
-  console.log(TopCakes)
 
   return (
 
@@ -79,8 +105,10 @@ export const Blog = () => {
               >
                 <img src={Allcakes[index].image.url} alt="" className="lowerfig" />
                 <div className="case_container">
-                  <p className="lowerfigcaption">{cakex.name}</p>
-                  <p className="lowerfigprice">Rs.{cakex.price.formatted.slice(0, -2)}</p>
+                  <div>
+                    <p className="lowerfigcaption">{cakex.name}</p>
+                    <p className="lowerfigprice">Rs.{cakex.price.formatted.slice(0, -2)}</p>
+                  </div>
                 </div>
               </Link>
             ))

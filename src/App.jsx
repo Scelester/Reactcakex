@@ -1,5 +1,5 @@
 import React from "react";
-import { CTA, Navbar } from "./component";
+import { CTA, Navbar, Login } from "./component";
 import {
   Blog,
   Header,
@@ -31,6 +31,7 @@ const App = () => {
           </BrowserRouter>
         </div>
         <Footer />
+        <Login />
       </div>
     </div>
   );

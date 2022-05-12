@@ -2,6 +2,8 @@ import React from "react";
 
 import "./Navbar.css";
 
+
+
 import searchicon from "../../assets/searchicon.png";
 import userlogicon from "../../assets/userlog.png";
 import menubaricon from "../../assets/menubar.png";
@@ -47,12 +49,12 @@ export const Navbar = () => {
       </div>
 
       <div className="registration-btn-container">
-        <a className="rgtbut pcview" href="/">
+        <div className="rgtbut pcview loginbutton">
           <div className="logmenuonpc">
             <img src={userlogicon} alt="" width="18px"></img>
             <p>SignIn</p>
           </div>
-        </a>
+        </div>
 
         <div className="menu-bar-for-mobile tabview">
           <img src={menubaricon} alt="" width="25px" />
