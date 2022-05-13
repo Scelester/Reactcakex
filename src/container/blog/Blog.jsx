@@ -11,14 +11,16 @@ import "./Blog.css";
 export const Blog = () => {
   const [Allcakes, setAllcakes] = useState();
   const [TopCakes, setTopCakes] = useState();
+  const [Curpage, setCurpage] = useState(1);
+  const [Total_page, setTotal_page] = useState();
+
+  const first_page = Curpage === 1 ? true : false;
 
   const fetchCakes = async () => {
 
-    let thereAre_topcakes;
-    let thereAre_allcakes;
 
-    thereAre_topcakes = JSON.parse(window.sessionStorage.getItem('cakeg_topcake'));
-    thereAre_allcakes = JSON.parse(window.sessionStorage.getItem('cakeg_allcake'));
+    let thereAre_topcakes = JSON.parse(window.sessionStorage.getItem('cakeg_topcake'));
+    let thereAre_allcakes = JSON.parse(window.sessionStorage.getItem('cakeg_allcake'));
 
     if (thereAre_topcakes !== null) {
       setTopCakes(thereAre_topcakes)
@@ -31,30 +33,37 @@ export const Blog = () => {
       window.sessionStorage.setItem('cakeg_topcake', JSON.stringify(topcakes_data));
 
       setTopCakes(topcakes_data);
+
     }
 
     if (thereAre_allcakes !== null) {
       setAllcakes(thereAre_allcakes)
     } else {
       const allcakes_data = await commerce.products.list({
-        category_slug: ["allcakes"], limit: 20,
-      }).then(response => response.data);
+        category_slug: ["allcakes"], limit: 20, page: Curpage,
+      }).then(response => response);
 
-      setAllcakes(allcakes_data);
+      setAllcakes(allcakes_data.data);
 
-      window.sessionStorage.setItem('cakeg_allcake', JSON.stringify(allcakes_data))
+      window.sessionStorage.setItem('cakeg_allcake', JSON.stringify(allcakes_data.data))
 
     }
 
+  }
 
+  const pagination_things = async () => {
 
+    var total_product = await commerce.products.list({
+      category_slug: ["allcakes"], limit: 1
+    }).then(response => response)
 
-
+    setTotal_page(total_product)
 
   }
 
   useEffect(() => {
     fetchCakes();
+    pagination_things();
   }, []);
 
   return (
@@ -112,6 +121,24 @@ export const Blog = () => {
               </Link>
             ))
             : ""}
+          {Total_page
+            ? <div className="pagination_holder">
+              {/* show previos, curPage and next 2 and dropdown and next  button*/}
+              <button className="previous_page" disabled={first_page}>Prev</button>
+              <select name="psd" id="page_select_dd"
+                className="page_selector_dd"
+              >
+                {[...Array(Total_page).keys()].map((tp) => (
+                  <option value="lol" key={tp}>{tp + 1}</option>
+                ))}
+
+
+              </select>
+              <button className="next_page">Next</button>
+            </div>
+            : ""}
+
+
         </div>
       </div>
     </div >

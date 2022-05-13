@@ -145,3 +145,22 @@
 .case_container div {
   padding: 10px 0 0 5px;
 }
+
+/* pagination */
+.pagination_holder {
+  margin: 20px 0;
+  height: 30px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.pagination_holder>button {
+  padding: 0 5px;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+#page_select_dd {
+  min-width: 30px;
+}

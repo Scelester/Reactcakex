@@ -7,7 +7,7 @@
     left: 0;
     top: 0;
     background-color: rgba(34, 31, 31, 0.5);
-    z-index: 10;
+    z-index: 11;
     justify-content: center;
     align-items: center;
     overflow: auto;

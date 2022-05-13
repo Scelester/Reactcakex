@@ -24,8 +24,9 @@ export const Login = () => {
                 let fullname = document.getElementById("fullname").value;
                 let email = document.getElementById("email").value;
                 let phone = document.getElementById("phone").value;
+                let Adress = document.getElementById("Adress").value;
 
-                const udat = [fullname, email, phone]
+                const udat = [fullname, email, phone, Adress]
 
                 window.localStorage.setItem('cakeg_usersubmitted_data', udat)
 
@@ -40,17 +41,23 @@ export const Login = () => {
         var login_button = document.getElementsByClassName("loginbutton")[0]
         var close_button = document.getElementsByClassName("modal_closer")[0]
         var modalcontain = document.getElementsByClassName("modal_container")[0]
+        var whole_body = document.getElementsByTagName("body")[0]
 
 
         login_button.addEventListener("click", function () {
             modalcontain.style.display = "flex";
+            whole_body.style.overflow = "hidden"
         })
 
         close_button.addEventListener("click", function () {
             modalcontain.style.display = "none";
+            whole_body.style.overflow = "auto";
         })
         window.addEventListener("click", function (event) {
-            if (event.target === modalcontain) modalcontain.style.display = "none"
+            if (event.target === modalcontain) {
+                modalcontain.style.display = "none"
+                whole_body.style.overflow = "auto";
+            }
         })
     }
 
@@ -88,6 +95,11 @@ export const Login = () => {
                         <span className="spancox phone">
                             <label htmlFor="phone">Phone:</label>
                             <input type="text" name="phone" id="phone" />
+
+                        </span>
+                        <span className="spancox Adress">
+                            <label htmlFor="Adress">Address:</label>
+                            <input type="text" name="Adress" id="Adress" placeholder="full address" />
 
                         </span>
 
