@@ -129,6 +129,7 @@
   opacity: 0;
   background-color: red;
   width: 20px;
+  margin-bottom: -4px;
   transition: opacity 0.3s;
 }
 

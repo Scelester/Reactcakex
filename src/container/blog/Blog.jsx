@@ -15,9 +15,10 @@ export const Blog = () => {
   const fetchCakes = async () => {
 
     let thereAre_topcakes;
-    let threreAre_allcakes;
+    let thereAre_allcakes;
 
     thereAre_topcakes = JSON.parse(window.sessionStorage.getItem('cakeg_topcake'));
+    thereAre_allcakes = JSON.parse(window.sessionStorage.getItem('cakeg_allcake'));
 
     if (thereAre_topcakes !== null) {
       setTopCakes(thereAre_topcakes)
@@ -32,10 +33,8 @@ export const Blog = () => {
       setTopCakes(topcakes_data);
     }
 
-    threreAre_allcakes = JSON.parse(window.sessionStorage.getItem('cakeg_allcake'))
-
-    if (threreAre_allcakes !== null) {
-      setAllcakes(threreAre_allcakes)
+    if (thereAre_allcakes !== null) {
+      setAllcakes(thereAre_allcakes)
     } else {
       const allcakes_data = await commerce.products.list({
         category_slug: ["allcakes"], limit: 20,

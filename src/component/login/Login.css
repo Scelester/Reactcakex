@@ -44,7 +44,6 @@
 }
 
 .loginxsubmit {
-    width: 10px;
     font-size: 20px;
     max-width: 90px;
 }
@@ -60,6 +59,7 @@
 
 .spancox>input {
     width: max(20vw, 200px);
+    font-size: 20px;
 }
 
 /* button design */
@@ -77,7 +77,7 @@
     font-size: 14px;
     font-weight: 600;
     line-height: 20px;
-    padding: 6px 16px;
+    padding: 6px 16px 6px 12px;
     position: relative;
     text-align: center;
     text-decoration: none;
@@ -88,28 +88,6 @@
     white-space: nowrap;
 }
 
-.loginxsubmit:focus:not(:focus-visible):not(.focus-visible) {
-    box-shadow: none;
-    outline: none;
-}
-
-.loginxsubmit:hover {
-    background-color: #2c974b;
-}
-
-.loginxsubmit:focus {
-    box-shadow: rgba(46, 164, 79, .4) 0 0 0 3px;
-    outline: none;
-}
-
-.loginxsubmit:disabled {
-    background-color: #94d3a2;
-    border-color: rgba(27, 31, 35, .1);
-    color: rgba(255, 255, 255, .8);
-    cursor: default;
-}
-
 .loginxsubmit:active {
-    background-color: #298e46;
-    box-shadow: rgba(20, 70, 32, .2) 0 1px 0 inset;
+    background-color: #226b36;
 }
