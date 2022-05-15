@@ -10,7 +10,7 @@
 
 .heading_loader:before {
   content: "";
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   width: 80px;
@@ -79,6 +79,8 @@
   display: flex;
   column-gap: 7px;
   flex-wrap: wrap;
+  align-items: flex-start;
+  min-height: 310px;
 }
 
 .lowerfig {
@@ -148,7 +150,8 @@
 
 /* pagination */
 .pagination_holder {
-  margin: 20px 0;
+  align-self: flex-end;
+  margin: 10px 0 0 0;
   height: 30px;
   width: 100%;
   display: flex;

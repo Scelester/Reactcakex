@@ -8,19 +8,33 @@ import "./Blog.css";
 
 
 
-export const Blog = () => {
+export const Blog = ({ Curpage }) => {
   const [Allcakes, setAllcakes] = useState();
   const [TopCakes, setTopCakes] = useState();
-  const [Curpage, setCurpage] = useState(1);
   const [Total_page, setTotal_page] = useState();
 
-  const first_page = Curpage === 1 ? true : false;
+  const all_cake_re = async () => {
+    const allcakes_data = await commerce.products.list({
+      category_slug: ["allcakes"], limit: 1, page: Curpage,
+    }).then(response => response);
+
+    setAllcakes(allcakes_data.data);
+
+    setTotal_page(allcakes_data.meta.pagination.total_pages)
+  }
+
+  function Next_page_handle() {
+    Curpage++;
+  }
+  function Prev_page_handle() {
+    Curpage--;
+  }
 
   const fetchCakes = async () => {
 
 
     let thereAre_topcakes = JSON.parse(window.sessionStorage.getItem('cakeg_topcake'));
-    let thereAre_allcakes = JSON.parse(window.sessionStorage.getItem('cakeg_allcake'));
+
 
     if (thereAre_topcakes !== null) {
       setTopCakes(thereAre_topcakes)
@@ -36,35 +50,16 @@ export const Blog = () => {
 
     }
 
-    if (thereAre_allcakes !== null) {
-      setAllcakes(thereAre_allcakes)
-    } else {
-      const allcakes_data = await commerce.products.list({
-        category_slug: ["allcakes"], limit: 20, page: Curpage,
-      }).then(response => response);
 
-      setAllcakes(allcakes_data.data);
-
-      window.sessionStorage.setItem('cakeg_allcake', JSON.stringify(allcakes_data.data))
-
-    }
+    all_cake_re();
 
   }
 
-  const pagination_things = async () => {
-
-    var total_product = await commerce.products.list({
-      category_slug: ["allcakes"], limit: 1
-    }).then(response => response)
-
-    setTotal_page(total_product)
-
-  }
 
   useEffect(() => {
     fetchCakes();
-    pagination_things();
   }, []);
+
 
   return (
 
@@ -97,7 +92,10 @@ export const Blog = () => {
           </div>
           : <div className="heading_loader"></div>
         }
+
+
         <div className="lower-div-container">
+
           {Allcakes
             ?
             Allcakes.map((cakex, index) => (
@@ -120,21 +118,30 @@ export const Blog = () => {
                 </div>
               </Link>
             ))
-            : ""}
+            : <div className="heading_loader"></div>
+          }
+
+
           {Total_page
             ? <div className="pagination_holder">
               {/* show previos, curPage and next 2 and dropdown and next  button*/}
-              <button className="previous_page" disabled={first_page}>Prev</button>
+
+              <button className="prev_page" disabled={Curpage === 1 ? true : false} onClick={Prev_page_handle} >Prev</button>
+
               <select name="psd" id="page_select_dd"
                 className="page_selector_dd"
               >
-                {[...Array(Total_page).keys()].map((tp) => (
-                  <option value="lol" key={tp}>{tp + 1}</option>
-                ))}
+                {
+                  [...Array(Total_page).keys()].map((tp) => (
+                    <option value={tp + 1} key={tp}>{tp + 1}</option>
+                  ))
+                }
 
 
               </select>
-              <button className="next_page">Next</button>
+
+              <button className="next_page" disabled={Curpage === Total_page ? true : false} onClick={Next_page_handle} >Next</button>
+
             </div>
             : ""}
 

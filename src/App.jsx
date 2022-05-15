@@ -24,7 +24,7 @@ const App = () => {
         <div className="pseudo-body">
           <BrowserRouter>
             <Routes>
-              <Route path="/" element={<Blog />} />
+              <Route path="/" element={<Blog Curpage={1} />} />
               <Route path="/cake/:cid/" element={<Cakepage />} />
               <Route path="/admin/" element={<Admin />} />
             </Routes>
