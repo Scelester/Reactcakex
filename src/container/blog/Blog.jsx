@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 
 import { commerce } from '../../lib/Commerce'
@@ -14,6 +14,9 @@ export const Blog = () => {
   const [TopCakes, setTopCakes] = useState();
   const [Total_page, setTotal_page] = useState();
   const [Curpage, setCurpage] = useState(1);
+
+
+  console.log(useParams().pno)
 
 
   const all_cake_re = async () => {
