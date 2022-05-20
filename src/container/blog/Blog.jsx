@@ -14,7 +14,7 @@ export const Blog = () => {
   const [Allcakes, setAllcakes] = useState();
   const [TopCakes, setTopCakes] = useState();
   const [Total_page, setTotal_page] = useState();
-  const [Curpage, setCurpage] = useState(parseInt(useParams().pno));
+  const [Curpage] = useState(parseInt(useParams().pno));
 
   const nextPage = Curpage + 1
   const prevPage = Curpage - 1
@@ -134,6 +134,7 @@ export const Blog = () => {
               {Curpage === 1
                 ? <button disabled className="x01button next_page">Prev</button>
                 : <Link to={{ pathname: "/p" + prevPage + "/" }}
+                  state={{ pageno: prevPage }}
                   className="x01button prev_page" >Prev</Link>}
 
 
@@ -150,8 +151,9 @@ export const Blog = () => {
               </select>
               {Curpage === Total_page
                 ? <button disabled className="x01button next_page">Next</button>
-                : <Link to={{ pathname: "/p" + nextPage + "/" }} state={{ pageno: Curpage + 1 }} className="x01button next_page"
-                >Next</Link>}
+                : <Link to={{ pathname: "/p" + nextPage + "/" }}
+                  state={{ pageno: nextPage }}
+                  className="x01button next_page">Next</Link>}
 
 
             </div>
