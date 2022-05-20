@@ -24,7 +24,7 @@ const App = () => {
         <div className="pseudo-body">
           <BrowserRouter>
             <Routes>
-              <Route path="/" element={<Blog />} />
+              <Route path="/" element={<meta http-equiv="refresh" content="3; url = /p:1" />} />
               <Route path="/p:pno" element={<Blog />} />
               <Route path="/admin/" element={<Admin />} />
             </Routes>
