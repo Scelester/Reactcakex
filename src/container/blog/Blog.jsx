@@ -10,13 +10,14 @@ import "./Blog.css";
 
 
 export const Blog = () => {
+
   const [Allcakes, setAllcakes] = useState();
   const [TopCakes, setTopCakes] = useState();
   const [Total_page, setTotal_page] = useState();
-  const [Curpage, setCurpage] = useState(1);
+  const [Curpage, setCurpage] = useState(parseInt(useParams().pno));
 
-
-  console.log(useParams().pno)
+  const nextPage = Curpage + 1
+  const prevPage = Curpage - 1
 
 
   const all_cake_re = async () => {
@@ -132,7 +133,7 @@ export const Blog = () => {
 
               {Curpage === 1
                 ? <button disabled className="x01button next_page">Prev</button>
-                : <Link to={{ pathname: "/p" + (Curpage - 1) + "/" }}
+                : <Link to={{ pathname: "/p" + prevPage + "/" }}
                   className="x01button prev_page" >Prev</Link>}
 
 
@@ -149,7 +150,7 @@ export const Blog = () => {
               </select>
               {Curpage === Total_page
                 ? <button disabled className="x01button next_page">Next</button>
-                : <Link to={{ pathname: "/p" + (Curpage + 1) + "/" }} state={{ pageno: Curpage + 1 }} className="x01button next_page"
+                : <Link to={{ pathname: "/p" + nextPage + "/" }} state={{ pageno: Curpage + 1 }} className="x01button next_page"
                 >Next</Link>}
 
 
