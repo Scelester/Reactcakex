@@ -4,12 +4,12 @@ import { Link, useParams } from "react-router-dom";
 
 import { commerce } from '../../lib/Commerce'
 
-import "./Blog.css";
+import "./Annals.css";
 
 
 
 
-export const Blog = () => {
+export const Annals = () => {
 
   const [Allcakes, setAllcakes] = useState();
   const [TopCakes, setTopCakes] = useState();
@@ -57,8 +57,9 @@ export const Blog = () => {
 
   }
 
-  function Page_select_dd(pgn) {
-    alert(pgn);
+  const page_selector_for_dd = () => {
+    let s_elem = document.getElementById("page_select_dd")
+    window.location.href = "/page=" + s_elem.value + "/"
   }
 
 
@@ -72,15 +73,15 @@ export const Blog = () => {
 
   return (
 
-    <div className="whole-blog-wrapper">
-      <div className="main-blog-container fade-in">
+    <div className="whole-Annals-wrapper">
+      <div className="main-Annals-container fade-in">
         {TopCakes
-          ? <div className="upper-blog-container fade-in">
-            <figure className="upperfig upperblog_xfirst_container">
+          ? <div className="upper-Annals-container fade-in">
+            <figure className="upperfig upperAnnals_xfirst_container">
               <img src={TopCakes[0].image.url} alt="" />
               <figcaption className="scale-up-left">{TopCakes[0].name}</figcaption>
             </figure>
-            <div className="upperblog_xsecond_container">
+            <div className="upperAnnals_xsecond_container">
               <figure className="upperfig">
                 <img src={TopCakes[1].image.url} alt="" />
                 <figcaption className="scale-up-left">{TopCakes[1].name}</figcaption>
@@ -137,14 +138,12 @@ export const Blog = () => {
 
               {Curpage === 1
                 ? <button disabled className="x01button next_page">Prev</button>
-                : <a href={"/p" + prevPage + "/#lower_DC"}
+                : <a href={"/page=" + prevPage}
                   className="x01button prev_page" >Prev</a>}
 
 
               <select name="psd" id="page_select_dd"
-                className="page_selector_dd"
-                value="lol"
-                onChange={() => Page_select_dd()}
+                className="page_selector_dd" value={Curpage} onChange={() => page_selector_for_dd()}
               >
                 {
                   [...Array(Total_page).keys()].map((tp) => (
@@ -158,7 +157,7 @@ export const Blog = () => {
               </select>
               {Curpage === Total_page
                 ? <button disabled className="x01button next_page">Next</button>
-                : <a href={"/p" + nextPage + "/#lower_DC"}
+                : <a href={"/page=" + nextPage}
                   className="x01button next_page">Next</a>}
 
             </div>

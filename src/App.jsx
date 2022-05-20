@@ -1,7 +1,7 @@
 import React from "react";
 import { CTA, Navbar, Login } from "./component";
 import {
-  Blog,
+  Annals,
   Header,
   Footer,
   Cakepage,
@@ -24,8 +24,8 @@ const App = () => {
         <div className="pseudo-body">
           <BrowserRouter>
             <Routes>
-              <Route path="/" element={<meta httpEquiv="refresh" content="0; url = /p1" />} />
-              <Route path="/p:pno" element={<Blog />} />
+              <Route path="/" element={<meta httpEquiv="refresh" content="0; url = /page=1" />} />
+              <Route path="/page=:pno" element={<Annals />} />
               <Route path="/cake/:cid/" element={<Cakepage />} />
               <Route path="/admin/" element={<Admin />} />
             </Routes>
