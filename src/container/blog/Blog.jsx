@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
+
 import { commerce } from '../../lib/Commerce'
 
 import "./Blog.css";
@@ -8,10 +9,12 @@ import "./Blog.css";
 
 
 
-export const Blog = ({ Curpage }) => {
+export const Blog = () => {
   const [Allcakes, setAllcakes] = useState();
   const [TopCakes, setTopCakes] = useState();
   const [Total_page, setTotal_page] = useState();
+  const [Curpage, setCurpage] = useState(1);
+
 
   const all_cake_re = async () => {
     const allcakes_data = await commerce.products.list({
@@ -23,15 +26,10 @@ export const Blog = ({ Curpage }) => {
     setTotal_page(allcakes_data.meta.pagination.total_pages)
   }
 
-  function Next_page_handle() {
-    Curpage++;
-  }
-  function Prev_page_handle() {
-    Curpage--;
-  }
+
+
 
   const fetchCakes = async () => {
-
 
     let thereAre_topcakes = JSON.parse(window.sessionStorage.getItem('cakeg_topcake'));
 
@@ -54,6 +52,9 @@ export const Blog = ({ Curpage }) => {
     all_cake_re();
 
   }
+
+
+
 
 
   useEffect(() => {
@@ -126,7 +127,11 @@ export const Blog = ({ Curpage }) => {
             ? <div className="pagination_holder">
               {/* show previos, curPage and next 2 and dropdown and next  button*/}
 
-              <button className="prev_page" disabled={Curpage === 1 ? true : false} onClick={Prev_page_handle} >Prev</button>
+              {Curpage === 1
+                ? <button disabled className="x01button next_page">Prev</button>
+                : <Link to={{ pathname: "/p" + (Curpage - 1) + "/" }}
+                  className="x01button prev_page" >Prev</Link>}
+
 
               <select name="psd" id="page_select_dd"
                 className="page_selector_dd"
@@ -139,8 +144,11 @@ export const Blog = ({ Curpage }) => {
 
 
               </select>
+              {Curpage === Total_page
+                ? <button disabled className="x01button next_page">Next</button>
+                : <Link to={{ pathname: "/p" + (Curpage + 1) + "/" }} state={{ pageno: Curpage + 1 }} className="x01button next_page"
+                >Next</Link>}
 
-              <button className="next_page" disabled={Curpage === Total_page ? true : false} onClick={Next_page_handle} >Next</button>
 
             </div>
             : ""}
