@@ -57,6 +57,10 @@ export const Blog = () => {
 
   }
 
+  function Page_select_dd(pgn) {
+    alert(pgn);
+  }
+
 
 
 
@@ -99,7 +103,7 @@ export const Blog = () => {
         }
 
 
-        <div className="lower-div-container">
+        <div className="lower-div-container" id="lower_DC">
 
           {Allcakes
             ?
@@ -133,17 +137,20 @@ export const Blog = () => {
 
               {Curpage === 1
                 ? <button disabled className="x01button next_page">Prev</button>
-                : <Link to={{ pathname: "/p" + prevPage + "/" }}
-                  state={{ pageno: prevPage }}
-                  className="x01button prev_page" >Prev</Link>}
+                : <a href={"/p" + prevPage + "/#lower_DC"}
+                  className="x01button prev_page" >Prev</a>}
 
 
               <select name="psd" id="page_select_dd"
                 className="page_selector_dd"
+                value="lol"
+                onChange={() => Page_select_dd()}
               >
                 {
                   [...Array(Total_page).keys()].map((tp) => (
-                    <option value={tp + 1} key={tp}>{tp + 1}</option>
+                    <option value={tp + 1} key={tp}>
+                      {tp + 1}
+                    </option >
                   ))
                 }
 
@@ -151,10 +158,8 @@ export const Blog = () => {
               </select>
               {Curpage === Total_page
                 ? <button disabled className="x01button next_page">Next</button>
-                : <Link to={{ pathname: "/p" + nextPage + "/" }}
-                  state={{ pageno: nextPage }}
-                  className="x01button next_page">Next</Link>}
-
+                : <a href={"/p" + nextPage + "/#lower_DC"}
+                  className="x01button next_page">Next</a>}
 
             </div>
             : ""}
