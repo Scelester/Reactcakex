@@ -15,6 +15,7 @@ export const Annals = () => {
   const [TopCakes, setTopCakes] = useState();
   const [Total_page, setTotal_page] = useState();
   const [Curpage] = useState(parseInt(useParams().pno));
+  // const [Searching, setSearching] = useState();
 
   const nextPage = Curpage + 1
   const prevPage = Curpage - 1
@@ -22,7 +23,7 @@ export const Annals = () => {
 
   const all_cake_re = async () => {
     const allcakes_data = await commerce.products.list({
-      category_slug: ["allcakes"], limit: 1, page: Curpage,
+      category_slug: ["allcakes"], limit: 20, page: Curpage,
     }).then(response => response);
 
     setAllcakes(allcakes_data.data);
