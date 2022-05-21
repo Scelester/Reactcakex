@@ -24,7 +24,8 @@ const App = () => {
         <div className="pseudo-body">
           <BrowserRouter>
             <Routes>
-              <Route path="/" element={<meta httpEquiv="refresh" content="0; url = /page=1" />} />
+              <Route path="/" element={<Annals />} />
+              <Route path="/search=:cakename" element={<div>Porn</div>} />
               <Route path="/page=:pno" element={<Annals />} />
               <Route path="/cake/:cid/" element={<Cakepage />} />
               <Route path="/admin/" element={<Admin />} />
