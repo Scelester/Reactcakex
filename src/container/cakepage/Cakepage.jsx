@@ -12,10 +12,10 @@ export const Cakepage = () => {
   const location = useLocation();
 
   const [Product, setProduct] = useState();
-
   const fetchproduct = async () => {
     const xprod = await commerce.products.retrieve(location.state.id)
     setProduct(xprod);
+
   }
 
   useEffect(() => {
@@ -30,7 +30,7 @@ export const Cakepage = () => {
         < div className="cakemain">
           <p className="cakename">{Product.name}</p>
           <img src={Product.image.url} alt=''></img>
-          <p className="cakediscription">{Product.description}</p>
+          <p className="cakediscription">{Product.description.slice(3, -4)}</p>
           <button className="ordercake">Order Now <br /> Rs.{Product.price.raw}</button>
           <div className="similarcakes">
 
