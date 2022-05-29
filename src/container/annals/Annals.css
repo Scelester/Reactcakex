@@ -193,6 +193,13 @@
   opacity: 1;
 }
 
+.ssone:before {
+  content: '\2329';
+}
+
+.sstwo:before {
+  content: '\232a';
+}
 
 .sstwo {
   right: 0;

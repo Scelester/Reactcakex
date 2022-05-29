@@ -35,13 +35,13 @@ export const Annals = () => {
 
 
   function upperfigtoggleslideshow(ssuf = slideshowUF) {
-
+    var upfigelem = document.getElementsByClassName("upperfig")
+    for (let index = 0; index < upfigelem.length; index++) {
+      const element = upfigelem[index];
+      element.style.display = 'none'
+    }
     if (window.innerWidth <= 900) {
-      var upfigelem = document.getElementsByClassName("upperfig")
-      for (let index = 0; index < upfigelem.length; index++) {
-        const element = upfigelem[index];
-        element.style.display = 'none'
-      }
+
       upfigelem[ssuf].style.display = 'initial'
     } else {
       upfigelem = document.getElementsByClassName("upperfig")
@@ -80,7 +80,7 @@ export const Annals = () => {
             id="upper-Annals-container">
 
             {slideshowUF !== 0
-              ? <button className="btn_change_ss ssone" onClick={prev_ss}>⏴</button>
+              ? <button className="btn_change_ss ssone" onClick={prev_ss}></button>
               : ""
             }
 
@@ -109,7 +109,7 @@ export const Annals = () => {
             </div>
 
             {slideshowUF !== 4
-              ? <button className="btn_change_ss sstwo" onClick={next_ss}>⏵</button>
+              ? <button className="btn_change_ss sstwo" onClick={next_ss}></button>
               : ''
             }
 
