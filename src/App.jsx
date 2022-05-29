@@ -18,14 +18,13 @@ const App = () => {
   return (
     <div className="App">
       <div className="mainbackground">
-        <Navbar />
-        <Header />
-        <CTA />
         <div className="pseudo-body">
           <BrowserRouter>
+            <Navbar />
+            <Header />
+            <CTA />
             <Routes>
               <Route path="/" element={<Annals />} />
-              <Route path="/search=:cakename" element={<div>Porn</div>} />
               <Route path="/page=:pno" element={<Annals />} />
               <Route path="/cake/:cid/" element={<Cakepage />} />
               <Route path="/admin/" element={<Admin />} />

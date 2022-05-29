@@ -21,6 +21,10 @@
   --link-font-color: var(--light-mode-link);
 }
 
+.hideme {
+  display: none;
+}
+
 .scale-up-left {
   -webkit-animation: scale-up-left 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
   animation: scale-up-left 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;

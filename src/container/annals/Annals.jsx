@@ -21,7 +21,6 @@ export const Annals = () => {
     if (thereAre_topcakes !== null) {
       setTopCakes(thereAre_topcakes)
     } else {
-
       const topcakes_data = await commerce.products.list({
         category_slug: ["cake-header"], limit: 5,
       }).then(response => response.data);

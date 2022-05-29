@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { useSearchParams } from "react-router-dom";
-
+import { useSearchParams } from "react-router-dom"
 import { commerce } from '../../lib/Commerce'
+
 
 
 export const AnnalsAllList = () => {
@@ -10,8 +10,8 @@ export const AnnalsAllList = () => {
     const [Allcakes, setAllcakes] = useState();
     const [Total_page, setTotal_page] = useState();
     const [Curpage, setCurpage] = useState(parseInt(useParams().pno));
-    const [search_dat_f] = useSearchParams();
-    const [searching] = useState(search_dat_f.get('search'))
+    const [sparms] = useSearchParams();
+    const [searching] = useState(sparms.get('search'));
 
     if (isNaN(Curpage)) {
         setCurpage(1);
@@ -21,9 +21,23 @@ export const AnnalsAllList = () => {
     const nextPage = Curpage + 1
     const prevPage = Curpage - 1
 
+
+    window.onload = () => {
+
+        document.getElementById('srcbx').value = searching
+        let upperPhold = document.getElementsByClassName("upper-Annals-container")[0]
+
+        if (searching) {
+            upperPhold.style.display = "none";
+        }
+        else {
+            let upperPhold = document.getElementsByClassName("upper-Annals-container")[0]
+            upperPhold.style.display = "flex";
+        }
+    }
+
     const all_cake_re = async () => {
-
-
+        setAllcakes(null)
         const allcakes_data = await commerce.products.list({
             category_slug: ["allcakes"],
             limit: 20,
@@ -43,12 +57,6 @@ export const AnnalsAllList = () => {
 
 
     useEffect(() => {
-        if (searching) {
-            window.addEventListener('load', () => {
-                var upperPhold = document.getElementsByClassName("upper-Annals-container")[0]
-                upperPhold.style.display = "none";
-            })
-        }
         all_cake_re();
     }, []);
 
