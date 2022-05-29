@@ -62,3 +62,48 @@
 .menu-bar-for-mobile {
   display: none;
 }
+
+/* next */
+.mobile-view-sidebar {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 20;
+  background-color: rgba(0, 0, 0, 0.4);
+  width: 100%;
+  height: 100%;
+}
+
+.actualsidebar {
+  display: flex;
+  position: relative;
+  float: right;
+  flex-direction: column;
+  background-color: beige;
+  height: 100%;
+  width: 230px;
+  align-items: center;
+  padding: 10px;
+  overflow: scroll;
+  overflow-x: visible;
+  row-gap: 10px;
+}
+
+.mvs-close {
+  align-self: flex-end;
+  cursor: pointer;
+  user-select: none;
+}
+
+.tabview_ddown {
+  user-select: none;
+  color: #5c155c;
+  padding-top: 20px;
+  font-weight: bold;
+  opacity: 0.5;
+}
+
+.tabview_ddown:hover {
+  opacity: 1;
+}

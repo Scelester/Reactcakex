@@ -12,6 +12,7 @@ import "./Annals.css";
 export const Annals = () => {
 
   const [TopCakes, setTopCakes] = useState();
+  const [slideshowUF, setSlideshowUF] = useState(0);
 
   const fetchCakes = async () => {
 
@@ -33,7 +34,36 @@ export const Annals = () => {
   }
 
 
+  function upperfigtoggleslideshow(ssuf = slideshowUF) {
 
+    if (window.innerWidth <= 900) {
+      var upfigelem = document.getElementsByClassName("upperfig")
+      for (let index = 0; index < upfigelem.length; index++) {
+        const element = upfigelem[index];
+        element.style.display = 'none'
+      }
+      upfigelem[ssuf].style.display = 'initial'
+    } else {
+      upfigelem = document.getElementsByClassName("upperfig")
+      for (let index = 0; index < upfigelem.length; index++) {
+        const element = upfigelem[index];
+        element.style.display = 'block'
+      }
+    }
+  }
+
+  window.addEventListener('load', () => { upperfigtoggleslideshow(); })
+  window.addEventListener('resize', () => { upperfigtoggleslideshow(); })
+
+  function next_ss() {
+    setSlideshowUF(slideshowUF + 1)
+    upperfigtoggleslideshow(slideshowUF + 1);
+  }
+
+  function prev_ss() {
+    setSlideshowUF(slideshowUF - 1)
+    upperfigtoggleslideshow(slideshowUF - 1);
+  }
 
 
   useEffect(() => {
@@ -46,7 +76,15 @@ export const Annals = () => {
     <div className="whole-Annals-wrapper">
       <div className="main-Annals-container fade-in">
         {TopCakes
-          ? <div className="upper-Annals-container fade-in">
+          ? <div className="upper-Annals-container fade-in"
+            id="upper-Annals-container">
+
+            {slideshowUF !== 0
+              ? <button className="btn_change_ss ssone" onClick={prev_ss}>⏴</button>
+              : ""
+            }
+
+
             <figure className="upperfig upperAnnals_xfirst_container">
               <img src={TopCakes[0].image.url} alt="" />
               <figcaption className="scale-up-left">{TopCakes[0].name}</figcaption>
@@ -69,14 +107,18 @@ export const Annals = () => {
                 <figcaption className="scale-up-left">{TopCakes[4].name}</figcaption>
               </figure>
             </div>
+
+            {slideshowUF !== 4
+              ? <button className="btn_change_ss sstwo" onClick={next_ss}>⏵</button>
+              : ''
+            }
+
+
           </div>
           : <div className="heading_loader"></div>
         }
-
-        <AnnalsAllList />
-
-
       </div>
+      <AnnalsAllList />
     </div >
   );
 };

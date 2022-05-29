@@ -30,7 +30,7 @@ export const Cakepage = () => {
         < div className="cakemain">
           <p className="cakename">{Product.name}</p>
           <img src={Product.image.url} alt=''></img>
-          <p className="cakediscription">{Product.description ? Product.description.slice(3, -4) : "no discription"}</p>
+          <p className="cakediscription">{Product.description ? Product.description.slice(3, -4) : "~No description"}</p>
           <button className="ordercake">Order Now <br /> Rs.{Product.price.raw}</button>
           <div className="similarcakes">
           </div>

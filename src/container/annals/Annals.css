@@ -77,16 +77,17 @@
 
 .lower-div-container {
   display: flex;
-  column-gap: 7px;
   flex-wrap: wrap;
+  column-gap: 1vw;
   align-items: flex-start;
+  justify-content: center;
   min-height: 310px;
 }
 
 .lowerfig {
   width: 22vw;
   max-width: 400px;
-  min-width: 200px;
+  width: min(31vw, 400px);
   max-height: 330px;
   position: relative;
   cursor: pointer;
@@ -115,6 +116,7 @@
 .each-lowercase {
   background-color: rgb(32, 30, 30);
   color: white;
+  margin-bottom: 5px;
 }
 
 .case_container {
@@ -171,4 +173,76 @@
 
 #page_select_dd {
   min-width: 30px;
+}
+
+
+.btn_change_ss {
+  position: absolute;
+  display: none;
+  z-index: 20;
+  top: 50%;
+  outline: none;
+  border: none;
+  padding: 5px;
+  opacity: 0.4;
+  font-size: 20px;
+  transform: translateY(-50%)
+}
+
+.btn_change_ss:active {
+  opacity: 1;
+}
+
+
+.sstwo {
+  right: 0;
+}
+
+/* media */
+
+
+@media screen and (max-width:900px) {
+  .upper-Annals-container {
+    width: 100%;
+    padding: 1px;
+    position: relative;
+  }
+
+  .upperfig {
+    display: none;
+    width: 100%;
+    height: 100%;
+  }
+
+  .btn_change_ss {
+    display: inline;
+  }
+
+  .upperAnnals_xsecond_container>.upperfig>img {
+    width: 97vw;
+    height: 100%;
+  }
+}
+
+@media screen and (max-width:1000px) {
+  .upperfig>figcaption {
+    font-size: 20px;
+    display: initial;
+  }
+}
+
+@media screen and (max-width:775px) {
+  .lowerfig {
+    width: 47.7vw;
+  }
+
+  .case_container {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width:450px) {
+  .lowerfig {
+    width: 90vw;
+  }
 }

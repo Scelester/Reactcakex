@@ -22,19 +22,21 @@ export const AnnalsAllList = () => {
     const prevPage = Curpage - 1
 
 
-    window.onload = () => {
+    window.addEventListener('load', () => {
 
         document.getElementById('srcbx').value = searching
-        let upperPhold = document.getElementsByClassName("upper-Annals-container")[0]
+        let upperPhold = document.getElementsByClassName("main-Annals-container")[0]
 
         if (searching) {
             upperPhold.style.display = "none";
+
+
         }
         else {
-            let upperPhold = document.getElementsByClassName("upper-Annals-container")[0]
-            upperPhold.style.display = "flex";
+            let upperPhold = document.getElementsByClassName("main-Annals-container")[0]
+            upperPhold.style.display = "initial";
         }
-    }
+    });
 
     const all_cake_re = async () => {
         setAllcakes(null)

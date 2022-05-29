@@ -9,7 +9,6 @@ import "./Footer.css";
 export const Footer = () => {
   return (
     <div className="fcontain">
-      <hr />
       <div className="footer-main-container">
         <p className="contacttext">Contact & Socials</p>
         <a className="clink" href="https://www.youtube.com/"><img src={gmail_logo} alt="" width="50px" /></a>

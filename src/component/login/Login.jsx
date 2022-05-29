@@ -38,16 +38,21 @@ export const Login = () => {
 
 
     const clickingeffect_function = () => {
-        var login_button = document.getElementsByClassName("loginbutton")[0]
+        var login_buttons = document.getElementsByClassName("loginbutton")
         var close_button = document.getElementsByClassName("modal_closer")[0]
         var modalcontain = document.getElementsByClassName("modal_container")[0]
         var whole_body = document.getElementsByTagName("body")[0]
 
 
-        login_button.addEventListener("click", function () {
-            modalcontain.style.display = "flex";
-            whole_body.style.overflow = "hidden"
-        })
+        for (let index = 0; index < login_buttons.length; index++) {
+            const login_button = login_buttons[index];
+            login_button.addEventListener("click", function () {
+                modalcontain.style.display = "flex";
+                whole_body.style.overflow = "hidden"
+            })
+
+        }
+
 
         close_button.addEventListener("click", function () {
             modalcontain.style.display = "none";
