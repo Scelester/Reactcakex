@@ -85,7 +85,7 @@ export const Annals = () => {
             }
 
 
-            <figure className="upperfig upperAnnals_xfirst_container">
+            <figure className="upperfig upperAnnals_xfirst_container upfone">
               <img src={TopCakes[0].image.url} alt="" />
               <figcaption className="scale-up-left">{TopCakes[0].name}</figcaption>
             </figure>

@@ -63,6 +63,10 @@
   display: none;
 }
 
+.mobile-view-sidebar {
+  transition: display 0.3s;
+}
+
 /* next */
 .mobile-view-sidebar {
   display: none;
